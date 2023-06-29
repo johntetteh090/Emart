@@ -1,20 +1,29 @@
+
+
+import 'package:country_code_picker/country_code_picker.dart';
+import 'package:emart/Pages/LoginScreen/loginPage.dart';
 import 'package:emart/Palletes/Colours.dart';
-import 'package:emart/components/loginPageBody.dart';
+import 'package:emart/components/signUpPageBody.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage ({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage > createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage > {
+  static const double measurement= 50.0;
+  TextEditingController controller =  TextEditingController();
   @override
+
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Placeholder(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -36,16 +45,16 @@ class _LoginPageState extends State<LoginPage> {
 
                   const SizedBox(height: 40.0,),
 
-                  const Text('Welcome back!',
-                    style: TextStyle(fontSize: 40.0,fontStyle: FontStyle.normal,fontWeight: FontWeight.w600),),
+                  const Text('Create your account!',
+                    style: TextStyle(fontSize: 30.0,fontStyle: FontStyle.normal,fontWeight: FontWeight.w600),),
 
                   const SizedBox(height: 30.0,),
-                  const Text('Step into Your Digital Oasis: Login and Explore!',
+                  const Text('Create your account and embark on a journey of discovery.',
                     style: TextStyle(fontSize: 15.0,
                         fontStyle: FontStyle.normal,
                     color: PrimCol.inActiveColor),),
 
-                  const Text('Please log in to your account',
+                  const Text('"Join us and be part of a vibrant community.',
                     style: TextStyle(fontSize: 15.0,
                         fontStyle: FontStyle.normal,
                         color: PrimCol.inActiveColor),),
@@ -54,11 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 80.0,),
 
                   //THE LOGIN TEXTBOX AND THE REST
-                  textfields_and_Buttons(
-                    MediaQuery.of(context).size.height,
-                    MediaQuery.of(context).size.width,
-                    context
-                  ),
+                  const SignUp()
 
 
                 ],
@@ -67,5 +72,15 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    setState(() {
+
+    });
   }
 }

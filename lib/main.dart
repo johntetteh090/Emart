@@ -1,4 +1,6 @@
 import 'package:emart/Pages/LoginScreen/loginPage.dart';
+import 'package:emart/Pages/SignUpScreens/verificationPage.dart';
+import 'package:emart/Palletes/Colours.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:emart/Pages/splashScreen.dart';
@@ -35,9 +37,12 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         fontFamily: 'Raleway',
-          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue).copyWith(background: Colors.white)
+          // colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue).copyWith(background: Colors.white),
+        primaryColor: PrimCol.primaryColor,
+        backgroundColor: Colors.white
       ),
-      home: const LoginPage()
+      home: const VerificationPage()
+      //const LoginPage()
       //const FavouriteProductPage()
       //const SplashScreen()
     );
