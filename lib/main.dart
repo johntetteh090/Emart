@@ -1,3 +1,4 @@
+import 'package:emart/Pages/HomeScreens/homePage.dart';
 import 'package:emart/Pages/LoginScreen/loginPage.dart';
 import 'package:emart/Pages/SignUpScreens/verificationPage.dart';
 import 'package:emart/Palletes/Colours.dart';
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
         primaryColor: PrimCol.primaryColor,
         backgroundColor: Colors.white
       ),
-      home: const VerificationPage()
+      home: const HomePage()
+      //const VerificationPage()
       //const LoginPage()
       //const FavouriteProductPage()
       //const SplashScreen()

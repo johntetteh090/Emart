@@ -36,6 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   country_code_picker: ^3.0.0
+  flutter_rating_bar: ^4.0.1
 
 
 dev_dependencies:
@@ -67,6 +68,19 @@ flutter:
     - assets/payment.jpg
     - assets/google.png
     - assets/twitter.png
+    - assets/girlShopping.png
+    - assets/guyShopping.png
+    - assets/kidShopping.png
+    - assets/example.png
+    - assets/shirtGirl.png
+    - assets/girlShorts.png
+    - assets/girlBag.png
+    - assets/girlShoe.png
+    - assets/girlNecklace.png
+    - assets/girlLipgloss.png
+    - assets/girlPurse.png
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

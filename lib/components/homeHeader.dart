@@ -31,7 +31,7 @@ double width = MediaQuery.of(context).size.width/2;
       unselectedLabelColor: PrimCol.inActiveColor, //
       indicatorColor: PrimCol.primaryColor,
       indicatorPadding: EdgeInsets.symmetric(horizontal: 6.0),
-      indicatorWeight: 4.0,
+      indicatorWeight: 2.0,
       // indicator: BoxDecoration(
       //   borderRadius: BorderRadius.circular(10.0),
       //
@@ -41,14 +41,16 @@ double width = MediaQuery.of(context).size.width/2;
           text: 'Women',
         ),
         Tab(
-          icon: Icon(Icons.beach_access_sharp),
+          text: 'Men',
         ),
         Tab(
-          icon: Icon(Icons.brightness_5_sharp),
+          text: 'Kids',
         ),
       ],
     ),
   );
+
+
   // return Row(
   //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
   //   children: [
