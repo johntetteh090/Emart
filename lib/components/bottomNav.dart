@@ -1,3 +1,6 @@
+import 'package:emart/Pages/CartScreens/cartPage.dart';
+import 'package:emart/Pages/FavouriteScreens/favouritePage.dart';
+import 'package:emart/Pages/GuidanceScreens/FavouriteProductPage.dart';
 import 'package:emart/Palletes/Colours.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,24 +22,42 @@ Widget bottomNav(int currentIndex, BuildContext context){
     child:  BottomNavigationBar(
         currentIndex: currentIndex,
         elevation: 0.0,
-        items: const [
+        onTap: (index){
+
+          if(index==1){
+
+            // Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => const FavouritePage()),
+            //     );
+          }
+
+          if(index==2){
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CartPage()),
+            );
+          }
+        },
+        items:  [
 
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.house_fill,color: PrimCol.primaryColor,),
+            icon: Icon(CupertinoIcons.house_fill,color: (currentIndex== 0)? PrimCol.primaryColor :  PrimCol.inActiveColor,),
             label: 'Home',
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border_outlined,color: PrimCol.inActiveColor),
-            label: 'Home',
+            icon: Icon(Icons.favorite_border_outlined,color: (currentIndex== 1)? PrimCol.primaryColor :  PrimCol.inActiveColor,),
+            label: 'Favourites',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_checkout_outlined,color: PrimCol.inActiveColor),
+            icon: Icon(Icons.shopping_cart_checkout_outlined,color: (currentIndex== 2)? PrimCol.primaryColor :  PrimCol.inActiveColor,),
             label: 'Home',
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined,color: PrimCol.inActiveColor),
+            icon: Icon(Icons.person_2_outlined,color: (currentIndex== 3)? PrimCol.primaryColor :  PrimCol.inActiveColor,),
             label: 'Home',
           ),
         ]

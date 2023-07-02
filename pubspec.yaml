@@ -69,8 +69,6 @@ flutter:
     - assets/google.png
     - assets/twitter.png
     - assets/girlShopping.png
-    - assets/guyShopping.png
-    - assets/kidShopping.png
     - assets/example.png
     - assets/shirtGirl.png
     - assets/girlShorts.png
@@ -79,6 +77,17 @@ flutter:
     - assets/girlNecklace.png
     - assets/girlLipgloss.png
     - assets/girlPurse.png
+    - assets/guyshopping2.png
+    - assets/guyshirt.png
+    - assets/guyHood.png
+    - assets/guyJacket.png
+    - assets/guyShoe.png
+    - assets/guyTurtle.png
+    - assets/guyWatch.png
+    - assets/babyMama.png
+    - assets/babyShoe.png
+    - assets/babyHat.png
+    - assets/promotion.png
 
 
 
