@@ -40,7 +40,7 @@ class _SignUpState extends State<SignUp> {
               const CountryCodePicker(
                 onChanged: print,
                 // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
-                initialSelection: 'GH',
+                initialSelection: 'FR',
                 favorite: ['+39','FR'],
                 // optional. Shows only country name and flag
                 showCountryOnly: true,

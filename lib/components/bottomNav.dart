@@ -1,6 +1,8 @@
 import 'package:emart/Pages/CartScreens/cartPage.dart';
 import 'package:emart/Pages/FavouriteScreens/favouritePage.dart';
 import 'package:emart/Pages/GuidanceScreens/FavouriteProductPage.dart';
+import 'package:emart/Pages/HomeScreens/homePage.dart';
+import 'package:emart/Pages/Profile%20Screens/profilePage.dart';
 import 'package:emart/Palletes/Colours.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,12 +26,19 @@ Widget bottomNav(int currentIndex, BuildContext context){
         elevation: 0.0,
         onTap: (index){
 
+          if(index==0){
+
+            Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
+          }
           if(index==1){
 
-            // Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => const FavouritePage()),
-            //     );
+            Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FavouritePage()),
+                );
           }
 
           if(index==2){
@@ -37,6 +46,14 @@ Widget bottomNav(int currentIndex, BuildContext context){
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const CartPage()),
+            );
+          }
+
+          if(index==3){
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProfilePage()),
             );
           }
         },

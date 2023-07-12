@@ -42,11 +42,12 @@ class MyApp extends StatelessWidget {
         primaryColor: PrimCol.primaryColor,
         backgroundColor: Colors.white
       ),
-      home: const HomePage()
+      home:
+      //const HomePage()
       //const VerificationPage()
       //const LoginPage()
       //const FavouriteProductPage()
-      //const SplashScreen()
+      const SplashScreen()
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:emart/Pages/LoginScreen/loginPage.dart';
+import 'package:emart/Pages/SignUpScreens/signUpPage.dart';
 import 'package:emart/Palletes/Colours.dart';
 import 'package:flutter/material.dart';
 import 'package:emart/Palletes/Colours.dart';
@@ -117,7 +118,7 @@ class _OnlinePaymentPageState extends State<OnlinePaymentPage> {
 
                    Navigator.push(
                      context,
-                     MaterialPageRoute(builder: (context) => const LoginPage()),
+                     MaterialPageRoute(builder: (context) => const SignUpPage()),
                    );
                  },
                  style: TextButton.styleFrom(
