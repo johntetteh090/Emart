@@ -1,6 +1,7 @@
 import 'package:emart/Palletes/Colours.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:iconsax/iconsax.dart';
 
 PreferredSizeWidget header(String text,BuildContext context){
 
@@ -20,10 +21,16 @@ double width = MediaQuery.of(context).size.width/2;
     leadingWidth: width,
 
     actions: [
-    Container(
-          margin: const EdgeInsets.only(right: 15.0),
-          child: const Icon(CupertinoIcons.search,color: Colors.black),
-        )
+
+          GestureDetector(
+            onTap:(){
+
+            },
+            child : Container(
+              margin: const EdgeInsets.only(right: 15.0),
+              child:  Icon(Iconsax.shopping_cart,color: Colors.black),
+            )
+          )
     ],
 
     bottom:   const TabBar(
