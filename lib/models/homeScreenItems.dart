@@ -68,13 +68,31 @@ class HomePageItems {
   ];
 
   static  List itemDescription = [
-    'A new shirt -- 35 yards',
-    'A new short -- 24 yards',
-    'A new Louis vuitton standard',
-    'Versace shoe -- Size 35',
-    'A new Calvin klien necklace',
-    'A new Lip gloss from versace',
-    'A new purse from Da vinci'
+    ' Our shirt is crafted from high-quality Oxford cotton fabric, known for its durability, '
+        'breathability, and soft texture. It\'s designed to '
+        'keep you comfortable throughout the day. -- 35 yards',
+
+    'Discover the ultimate comfort and style with our Men\'s Classic Shorts. Crafted for the warm season, '
+        'these shorts are a versatile addition to your wardrobe. '
+    'Perfect for casual outings or a day at the beach. Get yours today and stay cool in style! -- 24 yards',
+
+
+    'Crafted from high-quality, full-grain leather, this bag not only looks luxurious but also promises durability and longevity.',
+
+    'Crafted from premium full-grain leather, these loafers exude luxury and durability,'
+        ' promising a long-lasting investment in your footwear collection. -- Size 35',
+
+
+    ' Crafted from 925 sterling silver, this necklace radiates a brilliant luster that complements any attire.'
+        ' It\'s hypoallergenic and tarnish-resistant, promising a lasting shine.',
+
+    'Our lip gloss delivers a high-shine finish that instantly '
+        'enhances the natural beauty of your lips, creating a dazzling and eye-catching look.',
+
+
+    'The compact size makes it ideal for everyday use, yet it offers ample space '
+        'for your wallet, phone, makeup, '
+        'and more. It\'s perfect for busy days and nights out.'
   ];
 
 

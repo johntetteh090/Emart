@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:emart/Pages/splashScreen.dart';
 import 'package:flutter/services.dart';
 import 'package:emart/Pages/GuidanceScreens/favouriteProductPage.dart';
+import 'package:provider/provider.dart';
+
+import 'Pages/UserItemChooseScreen/itemChoose_viewmodel.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,31 +26,34 @@ class MyApp extends StatelessWidget {
         statusBarColor: Colors.white, // Color for Android
         statusBarBrightness: Brightness.dark // Dark == white status bar -- for IOS.
     ));
-    return MaterialApp(
-      //title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
+    return ChangeNotifierProvider(
+        create: (_) => ItemChooseModel(),
+      child :  MaterialApp(
+        //title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
 
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        fontFamily: 'Raleway',
-          // colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue).copyWith(background: Colors.white),
-        primaryColor: PrimCol.primaryColor,
-        backgroundColor: Colors.white
-      ),
-      home:
-      //const HomePage()
-      //const VerificationPage()
-      //const LoginPage()
-      //const FavouriteProductPage()
-      const SplashScreen()
+          theme: ThemeData(
+            // This is the theme of your application.
+            //
+            // Try running your application with "flutter run". You'll see the
+            // application has a blue toolbar. Then, without quitting the app, try
+            // changing the primarySwatch below to Colors.green and then invoke
+            // "hot reload" (press "r" in the console where you ran "flutter run",
+            // or simply save your changes to "hot reload" in a Flutter IDE).
+            // Notice that the counter didn't reset back to zero; the application
+            // is not restarted.
+              fontFamily: 'Raleway',
+              // colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue).copyWith(background: Colors.white),
+              primaryColor: PrimCol.primaryColor,
+              backgroundColor: Colors.white
+          ),
+          home:
+          //const HomePage()
+          //const VerificationPage()
+          //const LoginPage()
+          //const FavouriteProductPage()
+          const SplashScreen()
+      )
     );
   }
 }

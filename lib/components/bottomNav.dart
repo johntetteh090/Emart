@@ -7,6 +7,7 @@ import 'package:emart/Palletes/Colours.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:iconsax/iconsax.dart';
 
 Widget bottomNav(int currentIndex, BuildContext context){
 
@@ -60,7 +61,7 @@ Widget bottomNav(int currentIndex, BuildContext context){
         items:  [
 
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.house_fill,color: (currentIndex== 0)? PrimCol.primaryColor :  PrimCol.inActiveColor,),
+            icon: Icon(Iconsax.home,color: (currentIndex== 0)? PrimCol.primaryColor :  PrimCol.inActiveColor,),
             label: 'Home',
           ),
 
@@ -69,13 +70,13 @@ Widget bottomNav(int currentIndex, BuildContext context){
             label: 'Favourites',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_checkout_outlined,color: (currentIndex== 2)? PrimCol.primaryColor :  PrimCol.inActiveColor,),
-            label: 'Home',
+            icon: Icon(Iconsax.shopping_cart,color: (currentIndex== 2)? PrimCol.primaryColor :  PrimCol.inActiveColor,),
+            label: 'cart',
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined,color: (currentIndex== 3)? PrimCol.primaryColor :  PrimCol.inActiveColor,),
-            label: 'Home',
+            icon: Icon(Iconsax.personalcard,color: (currentIndex== 3)? PrimCol.primaryColor :  PrimCol.inActiveColor,),
+            label: 'Settings',
           ),
         ]
     ),
