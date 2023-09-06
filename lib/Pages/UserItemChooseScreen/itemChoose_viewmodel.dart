@@ -14,6 +14,8 @@ class ItemChooseModel extends ChangeNotifier{
   List get likedItemRating => _likedItemRating;
   List get likedItemPricing => _likedItemPricing;
 
+
+
   like(name,desc,image,rating,pricing){
 
     _likedItemsName.add(name) ;

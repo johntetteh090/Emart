@@ -5,6 +5,7 @@ import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
 class UserItemChoosePage extends StatefulWidget {
   final String image;
@@ -471,9 +472,8 @@ class _UserItemChoosePageState extends State<UserItemChoosePage> {
                   child: TextButton(
                     onPressed: () {
 
-                      setState(() {
-                        visible = true;
-                      });
+                      openSnack(context);
+
                     },
                     style: TextButton.styleFrom(
                         foregroundColor: Colors.white, textStyle: const TextStyle(fontSize: 20.0),
@@ -517,14 +517,7 @@ class _UserItemChoosePageState extends State<UserItemChoosePage> {
 
                 const SizedBox(height: 30.0,),
 
-                Visibility(
-                  visible: visible,
-                    child: const Text('1 item added to cart',
-                    style: TextStyle(
-                      color: PrimCol.inActiveColor,
-                      fontSize: 18.0
-                    ),)
-                )
+
 
               ],
             ),
@@ -532,5 +525,41 @@ class _UserItemChoosePageState extends State<UserItemChoosePage> {
         ),
       ),
     );
+  }
+
+  void openSnack(BuildContext context){
+
+    Get.snackbar(
+      'Car Info',
+        '',
+        titleText: Text('cart Info',
+        style: TextStyle(
+          color : Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.bold
+        )),
+        messageText: const Row(
+            children:[
+
+              const Icon(Iconsax.tick_circle, color: Colors.white),
+
+              const SizedBox(width: 25.0),
+
+              Text('One item added to Cart',
+                  style : TextStyle(
+                      color : Colors.white
+                  ))
+
+
+            ]
+        ),
+        backgroundColor : PrimCol.primaryColor,
+            borderRadius : 10.0,
+        margin : const EdgeInsets.symmetric(horizontal : 15.0,vertical: 10.0),
+
+
+    );
+
+
   }
 }

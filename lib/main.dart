@@ -8,6 +8,8 @@ import 'package:emart/Pages/splashScreen.dart';
 import 'package:flutter/services.dart';
 import 'package:emart/Pages/GuidanceScreens/favouriteProductPage.dart';
 import 'package:provider/provider.dart';
+import 'package:get/get.dart';
+import 'package:emart/Pages/FavouriteScreens/favourite_viewmodel.dart';
 
 import 'Pages/UserItemChooseScreen/itemChoose_viewmodel.dart';
 
@@ -26,9 +28,19 @@ class MyApp extends StatelessWidget {
         statusBarColor: Colors.white, // Color for Android
         statusBarBrightness: Brightness.dark // Dark == white status bar -- for IOS.
     ));
-    return ChangeNotifierProvider(
-        create: (_) => ItemChooseModel(),
-      child :  MaterialApp(
+    return MultiProvider(
+        providers: [
+
+          ChangeNotifierProvider<ItemChooseModel>(
+            create: (_) => ItemChooseModel(),
+          ),
+          ChangeNotifierProvider<FavouriteModel>(
+            create: (_) => FavouriteModel(),
+          ),
+
+
+        ],
+      child : GetMaterialApp(
         //title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
 
