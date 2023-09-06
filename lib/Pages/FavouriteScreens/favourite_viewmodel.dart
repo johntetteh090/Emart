@@ -38,4 +38,6 @@ class FavouriteModel extends ChangeNotifier{
     notifyListeners();
 
   }
+
+
 }

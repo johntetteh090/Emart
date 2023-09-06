@@ -107,7 +107,7 @@ class _UserItemChoosePageState extends State<UserItemChoosePage> {
                             Container(
                               padding : const EdgeInsets.all(5.0),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100.0),
+                                borderRadius: BorderRadius.circular(50.0),
                                 border : Border.all( color : PrimCol.primaryColor,),
                                 //color: PrimCol.primaryColor
                               ),

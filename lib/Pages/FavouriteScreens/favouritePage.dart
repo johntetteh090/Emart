@@ -8,6 +8,8 @@ import 'package:provider/provider.dart';
 import 'package:emart/Pages/FavouriteScreens/favourite_viewmodel.dart';
 import 'package:emart/Pages/UserItemChooseScreen/itemChoose_viewmodel.dart';
 import 'package:emart/Palletes/Colours.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:get/get.dart';
 
 class FavouritePage extends StatefulWidget {
   const FavouritePage({super.key});
@@ -37,6 +39,36 @@ class _FavouritePageState extends State<FavouritePage> {
                 color: Colors.black
             ),),
 
+          actions: [
+            Stack(
+              children: [
+
+                Container(
+                  padding : const EdgeInsets.all(9.0),
+                  margin : const EdgeInsets.only(right : 15.0),
+
+                  child: const Icon(Iconsax.shopping_cart,size: 25.0,color : Colors.black),
+                ),
+
+                Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                        padding: const EdgeInsets.all(4.0),
+                        margin: const EdgeInsets.only(left: 28.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50.0),
+                          color: Colors.redAccent,
+                        ),
+                        child: Text('${readCartNotifier.addedItemsName.length}',
+                            style: TextStyle(
+                                color: Colors.white
+                            ))
+                    )
+                )
+              ],
+            )
+          ],
+
           elevation: 0.0,
 
         ),
@@ -54,107 +86,132 @@ class _FavouritePageState extends State<FavouritePage> {
                       itemCount: readNotifier.likedItemsName.length,
                       itemBuilder: (BuildContext context, int index)
                       {
-                        return Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            border : Border.all(color: Color(0xffd9d9d9), width: 2)
-                          ),
-                          child : Row(
-                            children: [
+                        if(index > 0){
+                          return Container(
+                              margin : const EdgeInsets.only(top: 15, bottom : 10),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  border : Border.all(color: Color(0xffd9d9d9), width: 2)
+                              ),
+                              child : Row(
+                                  children: [
 
-                             Container(
-                               width: 120,
-                               height : 100,
+                                    Container(
+                                      width: 120,
+                                      height : 100,
 
-                               child :  Image.asset('${readNotifier.likedItemImage[index]}'),
-                             ),
+                                      child :  Image.asset('${readNotifier.likedItemImage[index]}'),
+                                    ),
 
-                              const SizedBox(width : 20.0),
+                                    const SizedBox(width : 20.0),
 
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment : CrossAxisAlignment.start,
-                                children:[
+                                    Expanded(
+                                        child : Column(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            crossAxisAlignment : CrossAxisAlignment.start,
+                                            children:[
 
-                                  Text('${readNotifier.likedItemsName[index]}',
-                                  style : TextStyle(
-                                    fontSize: 25.0,
-                                    fontWeight: FontWeight.bold
-                                  )),
-                                  Text('${readNotifier.likedItemPricing[index]}',
-                                      style : TextStyle(
-                                          fontSize: 25.0,
+                                              Text('${readNotifier.likedItemsName[index]}',
+                                                  maxLines: 2,
+                                                  style : const TextStyle(
+                                                      fontSize: 25.0,
+                                                      fontWeight: FontWeight.bold
+                                                  )),
+                                              Text('\$ ${readNotifier.likedItemPricing[index]}',
+                                                  style : TextStyle(
+                                                    fontSize: 25.0,
 
-                                      )),
+                                                  )),
 
-                                  const SizedBox(height: 12.0,),
+                                              const SizedBox(height: 6.0,),
+                                              Text('${readNotifier.likeItemDesc[index]}',
+                                                  maxLines: 2,
+                                                  style : TextStyle(
+                                                    fontSize: 15.0,
+                                                    //fontWeight: FontWeight.bold
+                                                  )),
 
-                                  Row(
-                                    children: [
+                                              const SizedBox(height: 12.0,),
 
-                                      GestureDetector(
-                                        onTap:(){
+                                              Row(
+                                                  children: [
 
-                                          pressNotifier.removed(
-                                              readNotifier.likedItemsName[index],
-                                              readNotifier.likeItemDesc[index],
-                                              readNotifier.likedItemImage[index],
-                                              readNotifier.likedItemRating[index],
-                                              readNotifier.likedItemPricing[index]
-                                          );
-                                         },
-                                        child : Text('Remove',
-                                            style : TextStyle(
-                                                color : Color(0xffd9d9d9),
-                                              fontSize: 18.0
-                                            ))
-                                      ),
+                                                    GestureDetector(
+                                                        onTap:(){
 
-                                      Container(
-                                        //width: MediaQuery.of(context).size.width,
-                                        //height: 38.0,
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(10.0),
-                                          //border: Border.all(color : )
-                                        ),
-                                        margin: const EdgeInsets.symmetric(horizontal: 15.0),
+                                                          pressNotifier.removed(
+                                                              readNotifier.likedItemsName[index],
+                                                              readNotifier.likeItemDesc[index],
+                                                              readNotifier.likedItemImage[index],
+                                                              readNotifier.likedItemRating[index],
+                                                              readNotifier.likedItemPricing[index]
+                                                          );
+                                                        },
+                                                        child : Text('Remove',
+                                                            style : TextStyle(
+                                                                color : Color(0xffd9d9d9),
+                                                                fontSize: 18.0
+                                                            ))
+                                                    ),
 
-                                        clipBehavior : Clip.hardEdge,
-                                        child: TextButton(
-                                            onPressed: () {
+                                                    Container(
+                                                      //width: MediaQuery.of(context).size.width,
+                                                      //height: 38.0,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(10.0),
+                                                        //border: Border.all(color : )
+                                                      ),
+                                                      margin: const EdgeInsets.symmetric(horizontal: 15.0),
 
-                                              pressNotifier.added(
-                                                  readNotifier.likedItemsName[index],
-                                                  readNotifier.likeItemDesc[index],
-                                                  readNotifier.likedItemImage[index],
-                                                  readNotifier.likedItemRating[index],
-                                                  readNotifier.likedItemPricing[index]
-                                              );
+                                                      clipBehavior : Clip.hardEdge,
+                                                      child: TextButton(
+                                                          onPressed: () {
 
-                                            },
-                                            style: TextButton.styleFrom(
-                                                foregroundColor: Colors.white, textStyle: const TextStyle(fontSize: 20.0),
-                                                backgroundColor: (!readCartNotifier.addedItemsName.contains(readNotifier.likedItemsName[index]))
-                                                    ? PrimCol.primaryColor : Colors.white,
-                                              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                                              side: BorderSide(color: PrimCol.primaryColor),
+                                                            pressNotifier.added(
+                                                                readNotifier.likedItemsName[index],
+                                                                readNotifier.likeItemDesc[index],
+                                                                readNotifier.likedItemImage[index],
+                                                                readNotifier.likedItemRating[index],
+                                                                readNotifier.likedItemPricing[index]
+                                                            );
 
-                                            ),
-                                            child: Text((!readCartNotifier.addedItemsName.contains(readNotifier.likedItemsName[index]))
-                                                ? '+  Cart' : 'UnAdd',
-                                                style : TextStyle(
-                                                    color: (!readCartNotifier.addedItemsName.contains(readNotifier.likedItemsName[index]))
-                                                        ? Colors. white : PrimCol.primaryColor,
-                                                ))
-                                        ),
-                                      ),
-                                    ]
-                                  )
-                                ]
+                                                          },
+                                                          style: TextButton.styleFrom(
+                                                            foregroundColor: Colors.white, textStyle: const TextStyle(fontSize: 20.0),
+                                                            backgroundColor: (!readCartNotifier.addedItemsName.contains(readNotifier.likedItemsName[index]))
+                                                                ? PrimCol.primaryColor : Colors.white,
+                                                            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                                                            side: BorderSide(color: PrimCol.primaryColor),
+
+                                                          ),
+                                                          child: Text((!readCartNotifier.addedItemsName.contains(readNotifier.likedItemsName[index]))
+                                                              ? '+  Cart' : 'UnAdd',
+                                                              style : TextStyle(
+                                                                color: (!readCartNotifier.addedItemsName.contains(readNotifier.likedItemsName[index]))
+                                                                    ? Colors. white : PrimCol.primaryColor,
+                                                              ))
+                                                      ),
+                                                    ),
+                                                  ]
+                                              )
+                                            ]
+                                        )
+                                    )
+                                  ]
                               )
-                            ]
-                          )
-                        );
+                          );
+                        }
+                        else if (index <= 0 ){
+                          return Center(
+                              child : Text('Make your first Order',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    color : Colors.black
+                                  ))
+                          );
+                        }
+
                       },
                     )
                   ),
@@ -171,15 +228,20 @@ class _FavouritePageState extends State<FavouritePage> {
 
                     clipBehavior : Clip.hardEdge,
                     child: TextButton(
-                        onPressed: () {
+                        onPressed: () async{
 
-                          // pressNotifier.added(
-                          //     readNotifier.likedItemsName[index],
-                          //     readNotifier.likeItemDesc[index],
-                          //     readNotifier.likedItemImage[index],
-                          //     readNotifier.likedItemRating[index],
-                          //     readNotifier.likedItemPricing[index]
-                          // );
+                          for(int i=0; i < readNotifier.likedItemsName.length; i++){
+                            await pressNotifier.added(
+                                readNotifier.likedItemsName[i],
+                                readNotifier.likeItemDesc[i],
+                                readNotifier.likedItemImage[i],
+                                readNotifier.likedItemRating[i],
+                                readNotifier.likedItemPricing[i]
+                            );
+                          }
+
+                          openSnack(readNotifier.likedItemsName.length);
+
 
                         },
                         style: TextButton.styleFrom(
@@ -222,5 +284,41 @@ class _FavouritePageState extends State<FavouritePage> {
         ),
       ),
     );
+  }
+
+  void openSnack(var total){
+
+    Get.snackbar(
+      'Cart Info',
+      '',
+      titleText: Text('cart Info',
+          style: TextStyle(
+              color : Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold
+          )),
+      messageText:  Row(
+          children:[
+
+            const Icon(Iconsax.tick_circle, color: Colors.white),
+
+            const SizedBox(width: 25.0),
+
+            Text('$total items added to Cart',
+                style : TextStyle(
+                    color : Colors.white
+                ))
+
+
+          ]
+      ),
+      backgroundColor : PrimCol.primaryColor,
+      borderRadius : 10.0,
+      margin : const EdgeInsets.symmetric(horizontal : 15.0,vertical: 10.0),
+
+
+    );
+
+
   }
 }

@@ -28,13 +28,13 @@ class HomePageItems {
   //   return _name;
   // }
   static   List itemName = [
-    'Shirt',
-    'Short',
-    'Bag',
-    'Shoe',
-    'Necklace',
-    'Lip Gloss',
-    'Eye Lashes',
+    'The VersaStyle Shirt',
+    'NightStride Shorts',
+    'EleganceCarry Bag',
+    'GlamStep Footwear',
+    'LuxeAdorn Elegance',
+    'GlamourGlow Lip Gloss',
+    'LashLux Beauty purse',
   ];
   static   List itemImage = [
     'assets/shirtGirl.png',
