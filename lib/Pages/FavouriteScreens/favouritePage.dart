@@ -78,7 +78,31 @@ class _FavouritePageState extends State<FavouritePage> {
               width: MediaQuery.of(context).size.width,
               height : MediaQuery.of(context).size.height,
               margin: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 10.0),
-              child: Column(
+              child: (readNotifier.likedItemsName.length <= 0) ?  Column(
+                children:[
+
+                  Container(
+                    height: MediaQuery.of(context).size.height / 2,
+                    child: Image.asset('assets/biking.png'),
+                  ),
+
+                  const SizedBox(height: 15.0),
+
+                  Text('You have no favourites yet.',
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color : Colors.black
+                      )),
+
+                  Text('Browse through to choose your favourites',
+                      style: TextStyle(
+                          fontSize: 20,
+
+                          color : Colors.black
+                      ))
+                ]
+              ) : Column(
                 children: [
 
                   Expanded(
@@ -86,7 +110,7 @@ class _FavouritePageState extends State<FavouritePage> {
                       itemCount: readNotifier.likedItemsName.length,
                       itemBuilder: (BuildContext context, int index)
                       {
-                        if(index > 0){
+
                           return Container(
                               margin : const EdgeInsets.only(top: 15, bottom : 10),
                               decoration: BoxDecoration(
@@ -200,17 +224,8 @@ class _FavouritePageState extends State<FavouritePage> {
                                   ]
                               )
                           );
-                        }
-                        else if (index <= 0 ){
-                          return Center(
-                              child : Text('Make your first Order',
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    color : Colors.black
-                                  ))
-                          );
-                        }
+
+
 
                       },
                     )
@@ -260,26 +275,7 @@ class _FavouritePageState extends State<FavouritePage> {
                 ]
               ),
             )
-            // GridView.builder(
-            //     shrinkWrap: false,
-            //     scrollDirection: Axis.vertical,
-            //     itemCount: 4,
-            //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            //       crossAxisCount: 2,
-            //       childAspectRatio: MediaQuery.of(context).size.width /
-            //           (MediaQuery.of(context).size.height/1.4 ),
-            //     ),
-            //     itemBuilder: (BuildContext context, int index) {
-            //       return favouriteItem(
-            //         context,
-            //         HomePageItems.itemImage[index],
-            //         HomePageItems.itemName[index],
-            //         HomePageItems.itemPrice[index],
-            //         HomePageItems.itemRating[index],
-            //         HomePageItems.itemDescription[index],
-            //         MediaQuery.of(context).size.width,
-            //       );
-            //     })
+
 
         ),
       ),

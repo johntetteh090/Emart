@@ -7,12 +7,24 @@ class FavouriteModel extends ChangeNotifier{
   List _addedItemImage = [];
   List <double>_addedItemRating = [];
   List _addedItemPricing = [];
+  int _total = 0;
+  int _delivery = 67;
 
   List get addedItemsName => _addedItemsName;
   List get addedItemDesc => _addedItemDesc;
   List get addedItemImage => _addedItemImage;
   List get addedItemRating => _addedItemRating;
   List get addedItemPricing => _addedItemPricing;
+  get total {
+    for (int i=0; i < _addedItemsName.length; i++){
+
+      _total+= int.parse(_addedItemPricing[i]);
+      //notifyListeners();
+    }
+    return _total;
+  }
+  get delivery => _delivery;
+
 
   added(name,desc,image,rating,pricing){
 
@@ -36,6 +48,17 @@ class FavouriteModel extends ChangeNotifier{
     _addedItemPricing.remove(pricing);
 
     notifyListeners();
+
+  }
+
+  getTotal(){
+
+    for (int i=0; i < _addedItemsName.length; i++){
+
+      _total+= int.parse(_addedItemPricing[i]);
+      //notifyListeners();
+    }
+
 
   }
 

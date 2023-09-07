@@ -75,7 +75,7 @@ Widget bottomNav(int currentIndex, BuildContext context){
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Iconsax.personalcard,color: (currentIndex== 3)? PrimCol.primaryColor :  PrimCol.inActiveColor,),
+            icon: Icon(Iconsax.user,color: (currentIndex== 3)? PrimCol.primaryColor :  PrimCol.inActiveColor,),
             label: 'Settings',
           ),
         ]

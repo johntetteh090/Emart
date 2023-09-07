@@ -1,3 +1,4 @@
+import 'package:emart/Pages/HomeScreens/homePage.dart';
 import 'package:emart/Palletes/Colours.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,10 @@ import 'package:emart/Pages/SignUpScreens/signUpPage.dart';
 Widget textfields_and_Buttons(double height , double screenWidth,BuildContext context){
 
 const double measurement= 50.0;
+TextEditingController email = TextEditingController();
+TextEditingController password = TextEditingController();
+
+
   return Column(
     children: [
 
@@ -19,16 +24,7 @@ const double measurement= 50.0;
         margin: const EdgeInsets.symmetric(horizontal: 40.0),
         child: Row(
           children: [
-            // Container(
-            //   height: measurement,
-            //   width: measurement,
-            //   padding: const EdgeInsets.all(4.0),
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(5.0),
-            //     border: Border.all(color: PrimCol.inActiveColor)
-            //   ),
-            //   child: const Icon(CupertinoIcons.person,color: PrimCol.inActiveColor,)
-            // ),
+
 
             Expanded(
               child: TextField(
@@ -86,10 +82,12 @@ const double measurement= 50.0;
         child: TextButton(
           onPressed: () {
 
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => const LoginPage()),
-            // );
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const HomePage()),
+              );
+
           },
           style: TextButton.styleFrom(
               foregroundColor: Colors.white, textStyle: const TextStyle(fontSize: 20.0),
@@ -179,6 +177,7 @@ const double measurement= 50.0;
           style: TextStyle(color: PrimCol.inActiveColor,fontSize: 16.0),),
 
 
+         const SizedBox(width : 5.0),
          GestureDetector(
            onTap: (){
 

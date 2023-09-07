@@ -43,14 +43,39 @@ class _CartPageState extends State<CartPage> {
         bottomNavigationBar: bottomNav(2,context),
         body: SafeArea(
           child: SingleChildScrollView(
-            child : Column(
+            child : (readNotifier.addedItemsName.length <= 0) ?  Column(
+                children:[
+
+                  Container(
+                    height: MediaQuery.of(context).size.height / 2,
+                    child: Image.asset('assets/biking.png'),
+                  ),
+
+                  const SizedBox(height: 15.0),
+
+                  Text('You have no items in cart yet.',
+                      style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color : Colors.black
+                      )),
+
+                  Text('Browse through to own a product',
+                      style: TextStyle(
+                          fontSize: 20,
+
+                          color : Colors.black
+                      ))
+                ]
+            ) : Column(
                 children: [
 
                   Container(
-                    height : MediaQuery.of(context).size.height,
+                    height : MediaQuery.of(context).size.height / 1.4,
                       width : MediaQuery.of(context).size.width,
                       margin : const EdgeInsets.symmetric(horizontal: 15.0),
                       child : ListView.builder(
+                        physics: BouncingScrollPhysics(),
                         itemCount: readNotifier.addedItemsName.length,
                         itemBuilder: (BuildContext context, int index)
                         {
@@ -113,71 +138,116 @@ class _CartPageState extends State<CartPage> {
                         },
                       )
                   ),
+
                   const SizedBox(height : 15.0),
 
-                  // Container(
-                  //   width: MediaQuery.of(context).size.width,
-                  //   height: 50.0,
-                  //   decoration: BoxDecoration(
-                  //     borderRadius: BorderRadius.circular(10.0),
-                  //     //border: Border.all(color : )
-                  //   ),
-                  //   margin: const EdgeInsets.symmetric(horizontal: 15.0),
-                  //
-                  //   clipBehavior : Clip.hardEdge,
-                  //   child: TextButton(
-                  //       onPressed: () async{
-                  //
-                  //         for(int i=0; i < readNotifier.likedItemsName.length; i++){
-                  //           await pressNotifier.added(
-                  //               readNotifier.likedItemsName[i],
-                  //               readNotifier.likeItemDesc[i],
-                  //               readNotifier.likedItemImage[i],
-                  //               readNotifier.likedItemRating[i],
-                  //               readNotifier.likedItemPricing[i]
-                  //           );
-                  //         }
-                  //
-                  //         openSnack(readNotifier.likedItemsName.length);
-                  //
-                  //
-                  //       },
-                  //       style: TextButton.styleFrom(
-                  //         foregroundColor: Colors.white, textStyle: const TextStyle(fontSize: 20.0),
-                  //         backgroundColor:  PrimCol.primaryColor ,
-                  //         padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  //         side: BorderSide(color: PrimCol.primaryColor),
-                  //
-                  //       ),
-                  //       child: Text('Add All To Cart',
-                  //           style : TextStyle(
-                  //             color:  Colors.white,
-                  //           ))
-                  //   ),
-                  // ),
+                  Container(
+                    height : 240.0,
+                    decoration : BoxDecoration(
+                      borderRadius: const BorderRadius.only(topLeft: Radius.circular(55.0),
+                          topRight: Radius.circular(55.0)),
+                      
+                      color: PrimCol.primaryColor.withOpacity(.2)
+                    ),
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 30.0,vertical: 35.0),
+                      child : Column(
+                        children: [
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Order',
+                              style: TextStyle(
+                                fontSize : 18
+                              )),
+
+
+                              Text('\$ ${readNotifier.total}',
+                                  style: TextStyle(
+                                      fontSize : 18,
+                                    fontWeight : FontWeight.bold
+                                  ))
+                            ],
+                          ),
+                          const SizedBox(height : 15.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Delivery',
+                                  style: TextStyle(
+                                      fontSize : 18
+                                  )),
+
+
+                              Text('60.56',
+                                  style: TextStyle(
+                                      fontSize : 18,
+                                      fontWeight : FontWeight.bold
+                                  ))
+                            ],
+                          ),
+                          const SizedBox(height : 15.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Summary',
+                                  style: TextStyle(
+                                      fontSize : 18
+                                  )),
+
+
+                              Text('\$ ${readNotifier.total + 60.56}',
+                                  style: TextStyle(
+                                      fontSize : 18,
+                                      fontWeight : FontWeight.bold
+                                  ))
+                            ],
+                          ),
+                          const SizedBox(height : 10.0),
+                          const Divider(height : 8.0,thickness: 2.0,),
+
+                          const SizedBox(height : 10.0),
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              //border: Border.all(color : )
+                            ),
+                            margin: const EdgeInsets.symmetric(horizontal: 10.0),
+
+                            clipBehavior : Clip.hardEdge,
+                            child: TextButton(
+                                onPressed: () async{
+
+
+
+                                },
+                                style: TextButton.styleFrom(
+                                  foregroundColor: Colors.white, textStyle: const TextStyle(fontSize: 20.0),
+                                  backgroundColor:  PrimCol.primaryColor ,
+                                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                                  side: BorderSide(color: PrimCol.primaryColor),
+
+                                ),
+                                child: Text('Checkout',
+                                    style : TextStyle(
+                                      color:  Colors.white,
+                                    ))
+                            ),
+                          ),
+
+                        ],
+                      )
+                    ),
+                  )
+
+
                 ]
             ),
           )
-          // GridView.builder(
-          //     shrinkWrap: false,
-          //     scrollDirection: Axis.vertical,
-          //     itemCount: 4,
-          //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          //       crossAxisCount: 2,
-          //       childAspectRatio: MediaQuery.of(context).size.width /
-          //           (MediaQuery.of(context).size.height/1.4 ),
-          //     ),
-          //     itemBuilder: (BuildContext context, int index) {
-          //       return cartItem(
-          //         context,
-          //         HomePageItems.itemImage[index],
-          //         HomePageItems.itemName[index],
-          //         HomePageItems.itemPrice[index],
-          //         HomePageItems.itemRating[index],
-          //         HomePageItems.itemDescription[index],
-          //         MediaQuery.of(context).size.width,
-          //       );
-          //     })
+
 
         ),
       ),

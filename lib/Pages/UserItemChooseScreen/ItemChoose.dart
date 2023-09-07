@@ -6,6 +6,9 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 import 'package:get/get.dart';
+import 'package:emart/Pages/FavouriteScreens/favourite_viewmodel.dart';
+
+
 
 class UserItemChoosePage extends StatefulWidget {
   final String image;
@@ -56,6 +59,9 @@ class _UserItemChoosePageState extends State<UserItemChoosePage> {
 
     var readNotifier = Provider.of<ItemChooseModel>(context);
     var pressNotifier = Provider.of<ItemChooseModel>(context, listen: false);
+
+    var pressCartNotifier = Provider.of<FavouriteModel>(context, listen: false);
+    var readCartNotifier = Provider.of<FavouriteModel>(context);
 
     return  Placeholder(
       child: Scaffold(
@@ -123,7 +129,7 @@ class _UserItemChoosePageState extends State<UserItemChoosePage> {
                                   borderRadius: BorderRadius.circular(100.0),
                                   color: Colors.redAccent,
                                 ),
-                                 child: Text('${readNotifier.likedItemsName.length}',
+                                 child: Text('${readCartNotifier.addedItemsName.length}',
                                  style: TextStyle(
                                    color: Colors.white
                                  ))
@@ -470,7 +476,15 @@ class _UserItemChoosePageState extends State<UserItemChoosePage> {
                   margin: const EdgeInsets.symmetric(horizontal: 15.0),
                   clipBehavior : Clip.hardEdge,
                   child: TextButton(
-                    onPressed: () {
+                    onPressed: () async {
+
+                      await pressCartNotifier.added(
+                          name,
+                          description,
+                          image,
+                          rating,
+                          price
+                      );
 
                       openSnack(context);
 
